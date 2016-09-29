@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, SynEdit, SynMemo,
-  SynEditHighlighter, SynHighlighterJScript, Vcl.StdCtrls;
+  SynEditHighlighter, SynHighlighterJScript, Vcl.StdCtrls, Vcl.Menus;
 
 type
   TfrSourceCode = class(TFrame)

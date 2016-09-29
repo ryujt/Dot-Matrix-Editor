@@ -13,6 +13,7 @@ object fmMain: TfmMain
   KeyPreview = True
   Menu = MainMenu
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -23,7 +24,6 @@ object fmMain: TfmMain
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 562
     inline frMatrix: TfrMatrix
       Left = 0
       Top = 0
@@ -34,7 +34,7 @@ object fmMain: TfmMain
       ParentBackground = False
       ParentColor = False
       TabOrder = 0
-      ExplicitWidth = 784
+      ExplicitWidth = 281
       ExplicitHeight = 217
     end
     inline frMatrixList: TfrMatrixList
@@ -44,15 +44,16 @@ object fmMain: TfmMain
       Height = 320
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = -394
-      ExplicitTop = 63
+      ExplicitTop = 221
+      ExplicitWidth = 281
+      ExplicitHeight = 320
       inherited ListBox: TListBox
         Width = 281
         Height = 279
         ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 587
-        ExplicitHeight = 499
+        ExplicitTop = 41
+        ExplicitWidth = 281
+        ExplicitHeight = 279
       end
       inherited Panel1: TPanel
         Width = 281
@@ -80,14 +81,14 @@ object fmMain: TfmMain
     Height = 541
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 212
-    ExplicitTop = -12
+    ExplicitLeft = 281
+    ExplicitWidth = 503
+    ExplicitHeight = 541
     inherited SynEdit: TSynEdit
       Width = 503
       Height = 541
-      ExplicitLeft = 0
-      ExplicitWidth = 572
-      ExplicitHeight = 553
+      ExplicitWidth = 503
+      ExplicitHeight = 541
     end
   end
   object SaveDialog: TSaveDialog

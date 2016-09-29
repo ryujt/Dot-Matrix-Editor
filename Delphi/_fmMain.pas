@@ -25,6 +25,7 @@ type
     procedure miOpenClick(Sender: TObject);
     procedure miSaveClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure on_frMatrix_MatrixChanged(ASender:TObject; const AText:string);
     procedure on_frMatrixList_Changed(ASender:TObject; const AText:string);
@@ -50,6 +51,12 @@ begin
 
   frMatrixList.OnChanged  := on_frMatrixList_Changed;
   frMatrixList.OnSelected := on_frMatrixList_Selected;
+end;
+
+procedure TfmMain.FormShow(Sender: TObject);
+begin
+  SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE);
+  SetWindowPos(Handle, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE);
 end;
 
 procedure TfmMain.miExitClick(Sender: TObject);

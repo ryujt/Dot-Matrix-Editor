@@ -30,9 +30,6 @@ object frSourceCode: TfrSourceCode
       '')
     ReadOnly = True
     FontSmoothing = fsmNone
-    ExplicitLeft = -116
-    ExplicitWidth = 688
-    ExplicitHeight = 446
     RemovedKeystrokes = <
       item
         Command = ecCut
