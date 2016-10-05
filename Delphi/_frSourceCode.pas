@@ -12,6 +12,11 @@ type
     SynEdit: TSynEdit;
     SynJScriptSyn: TSynJScriptSyn;
     moSrc: TMemo;
+    PopupMenu: TPopupMenu;
+    miSelectall: TMenuItem;
+    miCopy: TMenuItem;
+    procedure miSelectallClick(Sender: TObject);
+    procedure miCopyClick(Sender: TObject);
   private
   public
     procedure SetSourceCode(const AText:string);
@@ -22,6 +27,16 @@ implementation
 {$R *.dfm}
 
 { TfrSourceCode }
+
+procedure TfrSourceCode.miCopyClick(Sender: TObject);
+begin
+  SynEdit.CopyToClipboard;
+end;
+
+procedure TfrSourceCode.miSelectallClick(Sender: TObject);
+begin
+  SynEdit.SelectAll;
+end;
 
 procedure TfrSourceCode.SetSourceCode(const AText: string);
 const
