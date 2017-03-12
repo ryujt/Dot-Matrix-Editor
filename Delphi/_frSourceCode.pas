@@ -11,10 +11,10 @@ type
   TfrSourceCode = class(TFrame)
     SynEdit: TSynEdit;
     SynJScriptSyn: TSynJScriptSyn;
-    moSrc: TMemo;
     PopupMenu: TPopupMenu;
     miSelectall: TMenuItem;
     miCopy: TMenuItem;
+    moSrc: TMemo;
     procedure miSelectallClick(Sender: TObject);
     procedure miCopyClick(Sender: TObject);
   private
@@ -40,7 +40,7 @@ end;
 
 procedure TfrSourceCode.SetSourceCode(const AText: string);
 const
-  LoopFormat = 'for (int i=0; i<8; i++) max7219.write(i+1, char_%d[i]);' + #13#10 +
+  LoopFormat = '  max7219.write(char_%d);' + #13#10 +
                '  delay(500);' + #13#10 + #13#10;
 var
   Loop: Integer;
@@ -56,12 +56,14 @@ begin
     Lines.Text := AText;
 
     for Loop := 0 to Lines.Count-1 do begin
-      sMatrixString := sMatrixString + Format('char char_%d[8] = { %s };'+#13#10, [Loop+1, Lines[Loop]]);
+      sMatrixString := sMatrixString + Format('static const unsigned char PROGMEM  char_%d[] = { %s };'+#13#10, [Loop+1, Lines[Loop]]);
       sLoop := sLoop + Format(LoopFormat, [Loop+1]);
     end;
   finally
     Lines.Free;
   end;
+
+  SetLength(sLoop, Length(sLoop)-2);
 
   SynEdit.Text := StringReplace(moSrc.Text, '@Matrix-String', sMatrixString, []);
   SynEdit.Text := StringReplace(SynEdit.Text, '@Loop', sLoop, []);
